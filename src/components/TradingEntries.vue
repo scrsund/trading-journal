@@ -1,11 +1,13 @@
+<!-- can be customized to user later on -->
+
 <template>
   <div>
     <h1>Trading Journal</h1>
-    <h2>Signal Checklist</h2>
+    <h2>Trade Checklist</h2>
     <ul>
       <li>4hr Trend (Uptrend or Downtrend)</li>
-      <li>Limit Order</li>
-      <li>Candle Confirmation</li>
+      <li>Using Limit Order</li>
+      <li>Candle Close Confirmation</li>
       <li>Support and Resistance Lines</li>
       <li>Time of Day</li>
       <li>Number of Trades Made</li>
@@ -21,7 +23,7 @@
     <input />
     <label>Reward (TP profit)</label>
     <input />
-    <label>Trade Setup</label>
+    <label>Journal Entry</label>
     <textarea rows="5"></textarea>
   </div>
 </template>
