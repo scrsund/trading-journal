@@ -17,7 +17,7 @@ menu showing reminders, window that comes from the side
           placeholder="New Reminder"
           class="reminder-input"
         />
-        <button @click="addReminder" class="reminder-button">Add</button>
+        <button @click="addReminder" class="add-button">Add</button>
       </div>
     </div>
   </transition>
@@ -102,10 +102,14 @@ button {
   color: #b3b3b3;
 }
 
-.reminder-button {
+.add-button {
   cursor: pointer;
   border-radius: 0.5rem;
   padding: 0.4rem;
+  border-color: #b3b3b3;
+  border: 1px solid #b3b3b3;
+  color: #646464;
+  background-color: transparent;
 }
 
 /*animations*/
