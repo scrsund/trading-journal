@@ -1,8 +1,11 @@
+//addItem() function - for adding reminders, entries, strategies, etc
+
 import { createStore } from "vuex";
 
 const store = createStore({
   state() {
     return {
+      isSidebarVisible: false,
       strategies: [
         {
           name: "strategy1",
@@ -28,6 +31,19 @@ const store = createStore({
         },
       ],
     };
+  },
+  mutations: {
+    toggleSidebar(state, payload) {
+      state.isSidebarVisible = payload;
+    },
+  },
+  actions: {
+    openSidebar({ commit }) {
+      commit("toggleSidebar", true);
+    },
+    closeSidebar({ commit }) {
+      commit("toggleSidebar", false);
+    },
   },
 });
 

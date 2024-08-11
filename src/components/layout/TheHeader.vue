@@ -1,13 +1,27 @@
 <template>
   <header>
-    <router-link>Entry</router-link>
+    <!-- <router-link>Entry</router-link>
     <router-link>Strategy</router-link>
     <router-link>Reminders</router-link>
-    <router-link>History</router-link>
+    <router-link>History</router-link> -->
+    <button @click="openSidebar">Reminders</button>
+    <RemindersSidebar />
   </header>
 </template>
 
-<script></script>
+<script>
+import { mapActions } from "vuex";
+import RemindersSidebar from "../RemindersSidebar.vue";
+
+export default {
+  components: {
+    RemindersSidebar,
+  },
+  methods: {
+    ...mapActions(["openSidebar"]),
+  },
+};
+</script>
 
 <style scoped>
 header {
@@ -20,7 +34,7 @@ header {
 }
 
 router-link {
-  padding-top: 1rem;
+  margin-top: 1rem;
   padding-left: 5rem;
   padding-right: 5rem;
   color: whitesmoke;
@@ -30,5 +44,15 @@ router-link {
 router-link:hover {
   color: grey;
   transition: 0.2s;
+}
+
+button {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: 2rem;
+  border: none;
+  background-color: transparent;
+  color: whitesmoke;
+  cursor: pointer;
 }
 </style>
