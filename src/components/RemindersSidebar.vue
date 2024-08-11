@@ -4,7 +4,9 @@ menu showing reminders, window that comes from the side
 <template>
   <transition name="slide">
     <div v-if="isVisible" class="sidebar">
-      <button @click="closeSidebar" class="close-button">Close</button>
+      <button @click="closeSidebar" class="close-button">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </button>
       <h2>Reminders</h2>
       <ul>
         <li v-for="reminder in reminders" :key="reminder">{{ reminder }}</li>
@@ -54,6 +56,9 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  margin-top: 2.5rem;
+}
 .sidebar {
   position: fixed;
   right: 0;
@@ -90,9 +95,11 @@ button {
   cursor: pointer;
   position: fixed;
   right: 0;
-  margin-right: 1rem;
+  margin-right: 1.6rem;
   border-radius: 0.5rem;
   border: none;
+  font-size: 1.3rem;
+  color: #b3b3b3;
 }
 
 .reminder-button {

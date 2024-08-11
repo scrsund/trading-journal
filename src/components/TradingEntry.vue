@@ -3,7 +3,6 @@
 <template>
   <main>
     <section>
-      <h1>Trading Journal</h1>
       <h2>Trade Checklist</h2>
       <ul>
         <li>4hr Trend (Uptrend or Downtrend)</li>
