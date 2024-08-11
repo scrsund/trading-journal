@@ -16,7 +16,7 @@
     </section>
     <section>
       <h2>Journal</h2>
-      <div>
+      <form>
         <label>Entry Time</label>
         <input />
         <label>Lot Size</label>
@@ -27,7 +27,8 @@
         <input />
         <label>Journal Entry</label>
         <textarea rows="5"></textarea>
-      </div>
+        <button type="submit">Submit</button>
+      </form>
     </section>
   </main>
 </template>

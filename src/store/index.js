@@ -30,6 +30,7 @@ const store = createStore({
           description: "",
         },
       ],
+      reminders: [],
     };
   },
   mutations: {

@@ -34,7 +34,7 @@ export default {
   position: fixed;
   right: 0;
   top: 0;
-  width: 300px;
+  width: 350px;
   height: 100%;
   background-color: #f4f4f4;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
