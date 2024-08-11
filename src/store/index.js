@@ -30,12 +30,23 @@ const store = createStore({
           description: "",
         },
       ],
-      reminders: [],
+      reminders: ["Take a break after profit or loss"],
     };
   },
   mutations: {
     toggleSidebar(state, payload) {
       state.isSidebarVisible = payload;
+    },
+    addItem(state, { type, item }) {
+      if (type === "strategies") {
+        state.strategies.push(item);
+      } else if (type === "entries") {
+        state.entries.push(item);
+      } else if (type === "reminders") {
+        state.reminders.push(item);
+      } else {
+        console.error(`Unknown type: ${type}`);
+      }
     },
   },
   actions: {
@@ -44,6 +55,9 @@ const store = createStore({
     },
     closeSidebar({ commit }) {
       commit("toggleSidebar", false);
+    },
+    addItem({ commit }, payload) {
+      commit("addItem", payload);
     },
   },
 });

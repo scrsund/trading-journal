@@ -4,26 +4,50 @@ menu showing reminders, window that comes from the side
 <template>
   <transition name="slide">
     <div v-if="isVisible" class="sidebar">
-      <button @click="closeSidebar" class="exit">Close</button>
+      <button @click="closeSidebar" class="close-button">Close</button>
       <h2>Reminders</h2>
       <ul>
-        <li>Take a break after profit or loss</li>
+        <li v-for="reminder in reminders" :key="reminder">{{ reminder }}</li>
       </ul>
-      <button @click="addReminder" class="reminder">Add a reminder</button>
+      <div class="add-reminder-container">
+        <input
+          v-model="newReminder"
+          placeholder="New Reminder"
+          class="reminder-input"
+        />
+        <button @click="addReminder" class="reminder-button">Add</button>
+      </div>
     </div>
   </transition>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
+  data() {
+    return {
+      newReminder: "",
+    };
+  },
   computed: {
     isVisible() {
       return this.$store.state.isSidebarVisible;
     },
+    ...mapState(["reminders"]),
   },
   methods: {
     closeSidebar() {
       this.$store.commit("toggleSidebar", false);
+    },
+    addReminder() {
+      if (this.newReminder.trim()) {
+        this.$store.dispatch("addItem", {
+          type: "reminders",
+          item: this.newReminder.trim(),
+        });
+        this.newReminder = "";
+      }
     },
   },
 };
@@ -42,9 +66,27 @@ export default {
   overflow-y: auto;
 }
 
+.add-reminder-container {
+  margin-top: 20px;
+}
+
+.reminder-input {
+  width: 80%;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
 /*buttons*/
 
-.exit {
+button {
+  margin-top: 0.5rem;
+}
+
+.close-button {
   cursor: pointer;
   position: fixed;
   right: 0;
@@ -53,9 +95,10 @@ export default {
   border: none;
 }
 
-.reminder {
+.reminder-button {
   cursor: pointer;
   border-radius: 0.5rem;
+  padding: 0.4rem;
 }
 
 /*animations*/
