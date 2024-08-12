@@ -9,15 +9,28 @@ menu showing reminders, window that comes from the side
       </button>
       <h2>Reminders</h2>
       <ul>
-        <li v-for="reminder in reminders" :key="reminder">{{ reminder }}</li>
+        <li v-for="reminder in reminders" :key="reminder">
+          {{ reminder }}
+          <button class="delete-button">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </li>
       </ul>
-      <div class="add-reminder-container">
+      <div class="add-reminder-container" v-if="isInputVisible">
         <input
           v-model="newReminder"
           placeholder="New Reminder"
           class="reminder-input"
         />
-        <button @click="addReminder" class="add-button">Add</button>
+        <button @click="addReminder" class="add-button confirm-button">
+          Add
+        </button>
+        <button @click="cancelInput" class="cancel-button">Cancel</button>
+      </div>
+      <div class="toggle-input-container">
+        <button @click="toggleInputIsVisible" class="toggle-input-button">
+          <i class="fa-solid fa-plus"></i>New Reminder
+        </button>
       </div>
     </div>
   </transition>
@@ -30,6 +43,7 @@ export default {
   data() {
     return {
       newReminder: "",
+      isInputVisible: true,
     };
   },
   computed: {
@@ -42,6 +56,13 @@ export default {
     closeSidebar() {
       this.$store.commit("toggleSidebar", false);
     },
+    toggleInputIsVisible() {
+      return (this.isInputVisible = true);
+    },
+    cancelInput() {
+      this.newReminder = "";
+      return (this.isInputVisible = false);
+    },
     addReminder() {
       if (this.newReminder.trim()) {
         this.$store.dispatch("addItem", {
@@ -49,6 +70,7 @@ export default {
           item: this.newReminder.trim(),
         });
         this.newReminder = "";
+        this.isInputVisible = false;
       }
     },
   },
@@ -56,9 +78,6 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  margin-top: 2.5rem;
-}
 .sidebar {
   position: fixed;
   right: 0;
@@ -71,8 +90,23 @@ h2 {
   overflow-y: auto;
 }
 
+h2 {
+  margin-top: 2.5rem;
+}
+
+li {
+  padding: 0.3rem;
+}
+
 .add-reminder-container {
   margin-top: 20px;
+}
+
+.toggle-input-container {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 3rem;
+  margin-left: 0.5rem;
 }
 
 .reminder-input {
@@ -87,11 +121,8 @@ h2 {
 
 /*buttons*/
 
-button {
-  margin-top: 0.5rem;
-}
-
 .close-button {
+  margin-top: 0.5rem;
   cursor: pointer;
   position: fixed;
   right: 0;
@@ -102,7 +133,36 @@ button {
   color: #b3b3b3;
 }
 
+.delete-button {
+  position: fixed;
+  right: 0;
+  border: none;
+  margin-right: 3rem;
+  font-size: 0.7rem;
+  color: #646464;
+  cursor: pointer;
+}
+
 .add-button {
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  border-color: #b3b3b3;
+  border: 1px solid #b3b3b3;
+  background-color: transparent;
+}
+
+.confirm-button {
+  margin-top: 0.5rem;
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.cancel-button {
+  margin-top: 0.5rem;
+  margin-left: 0.2rem;
   cursor: pointer;
   border-radius: 0.5rem;
   padding: 0.4rem;
@@ -110,6 +170,21 @@ button {
   border: 1px solid #b3b3b3;
   color: #646464;
   background-color: transparent;
+}
+
+.toggle-input-button {
+  margin-top: 2rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  border-color: #b3b3b3;
+  border: 1px solid #b3b3b3;
+  color: #646464;
+  background-color: transparent;
+}
+
+.fa-plus {
+  margin-right: 0.3rem;
 }
 
 /*animations*/
