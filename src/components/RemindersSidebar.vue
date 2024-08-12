@@ -18,8 +18,8 @@ menu showing reminders, window that comes from the side
       </ul>
       <div class="add-reminder-container" v-if="isInputVisible">
         <input
+          ref="reminderInput"
           v-model="newReminder"
-          placeholder="New Reminder"
           class="reminder-input"
         />
         <button @click="addReminder" class="add-button confirm-button">
@@ -57,11 +57,14 @@ export default {
       this.$store.commit("toggleSidebar", false);
     },
     toggleInputIsVisible() {
-      return (this.isInputVisible = true);
+      this.isInputVisible = true;
+      this.$nextTick(() => {
+        this.$refs.reminderInput.focus();
+      });
     },
     cancelInput() {
       this.newReminder = "";
-      return (this.isInputVisible = false);
+      this.isInputVisible = false;
     },
     addReminder() {
       if (this.newReminder.trim()) {
