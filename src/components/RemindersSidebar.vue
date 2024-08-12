@@ -11,7 +11,7 @@ menu showing reminders, window that comes from the side
       <ul>
         <li v-for="reminder in reminders" :key="reminder">
           {{ reminder }}
-          <button class="delete-button">
+          <button @click="deleteReminder(reminder)" class="delete-button">
             <i class="fa-regular fa-trash-can"></i>
           </button>
         </li>
@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       newReminder: "",
-      isInputVisible: true,
+      isInputVisible: false,
     };
   },
   computed: {
@@ -72,6 +72,12 @@ export default {
         this.newReminder = "";
         this.isInputVisible = false;
       }
+    },
+    deleteReminder(reminder) {
+      this.$store.dispatch("removeItem", {
+        type: "reminders",
+        item: reminder,
+      });
     },
   },
 };

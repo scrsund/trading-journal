@@ -48,6 +48,21 @@ const store = createStore({
         console.error(`Unknown type: ${type}`);
       }
     },
+    removeItem(state, { type, item }) {
+      if (type === "strategies") {
+        state.strategies = state.strategies.filter(
+          (strategy) => strategy !== item
+        );
+      } else if (type === "entries") {
+        state.entries = state.entries.filter((entry) => entry !== item);
+      } else if (type === "reminders") {
+        state.reminders = state.reminders.filter(
+          (reminder) => reminder !== item
+        );
+      } else {
+        console.error(`Unknown type: ${type}`);
+      }
+    },
   },
   actions: {
     openSidebar({ commit }) {
@@ -58,6 +73,9 @@ const store = createStore({
     },
     addItem({ commit }, payload) {
       commit("addItem", payload);
+    },
+    removeItem({ commit }, payload) {
+      commit("removeItem", payload);
     },
   },
 });
