@@ -55,7 +55,7 @@ export default {
   methods: {
     closeSidebar() {
       this.$store.commit("toggleSidebar", false);
-      this.isInputVisible = false;
+      // this.isInputVisible = false;
     },
     toggleInputIsVisible() {
       this.isInputVisible = true;
@@ -102,6 +102,7 @@ export default {
 
 h2 {
   margin-top: 2.5rem;
+  margin-left: 0.5rem;
 }
 
 li {
