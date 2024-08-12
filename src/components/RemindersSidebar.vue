@@ -55,6 +55,7 @@ export default {
   methods: {
     closeSidebar() {
       this.$store.commit("toggleSidebar", false);
+      this.isInputVisible = false;
     },
     toggleInputIsVisible() {
       this.isInputVisible = true;
