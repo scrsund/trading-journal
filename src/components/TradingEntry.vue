@@ -4,29 +4,60 @@
   <main>
     <section>
       <h2>Trade Checklist</h2>
-      <ul>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="trend" name="trend"/>
+          <label for="trend">15m or 4hr Trend</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="limitOrder" name="limitOrder">
+          <label for="limitOrder">Using Limit Order</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="candleClose" name="candleClose">
+          <label for="candleClose">Candle Close</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="supportResistance" name="supportResistance">
+          <label for="supportResistance">Support and Resistance</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="timeNews" name="timeNews">
+          <label for="timeNews">Time of Day / News</label>
+        </div>
+      </div>
+      <!-- <ul>
         <li>4hr Trend (Uptrend or Downtrend)</li>
         <li>Using Limit Order</li>
         <li>Candle Close Confirmation</li>
         <li>Support and Resistance Lines</li>
-        <li>Time of Day</li>
-        <li>Number of Trades Made</li>
-      </ul>
+        <li>Time of Day / News</li>
+      </ul> -->
     </section>
     <section>
-      <h2>Journal</h2>
+      <h2>Entry</h2>
       <form>
-        <label>Entry Time</label>
+        <label>Date</label>
         <input />
-        <label>Lot Size</label>
+        <label>Time</label>
         <input />
-        <label>Risk (SL loss)</label>
+        <!-- Create a dropdown for Buy / Sell -->
+        <label for="buy-sell">Buy / Sell</label>
+        <select id="buy-sell">
+          <option value="buy">Buy</option>
+          <option value="sell">Sell</option>
+        </select>
+        <label>Signal</label>
+        <textarea rows="3"></textarea>
+        <!-- Add multiple TP -->
+        <label>TP 1</label>
+        <button>Add TP</button>
         <input />
-        <label>Reward (TP profit)</label>
-        <input />
-        <label>Journal Entry</label>
+        <label>Invalidation Criteria</label>
+        <textarea rows="3"></textarea>
+        <label>Comments</label>
         <textarea rows="5"></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit">Add Entry</button>
       </form>
     </section>
   </main>
