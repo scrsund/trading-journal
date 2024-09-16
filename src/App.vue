@@ -12,30 +12,37 @@ Pages:
 -->
 
 <template>
-  <TheHeader />
-  <!-- <TheSidebar /> -->
-  <TradingEntry></TradingEntry>
+  <!-- <TheHeader /> -->
+  <div id="app">
+    <TheSidebar />
+    <main class="content">
+     <router-view></router-view>
+    </main>
+  </div>
+  <!-- <TradingEntry></TradingEntry> -->
 </template>
 
 <script>
-import TradingEntry from "./components/TradingEntry.vue";
-import TheHeader from "./components/layout/TheHeader.vue";
-// import TheSidebar from "./components/layout/TheSidebar.vue";
+// import TradingEntry from "./components/TradingEntry.vue";
+// import TheHeader from "./components/layout/TheHeader.vue";
+import TheSidebar from "./components/layout/TheSidebar.vue";
 
 export default {
   name: "App",
   components: {
-    TradingEntry,
-    TheHeader,
-    // TheSidebar,
+    // TradingEntry,
+    // TheHeader,
+    TheSidebar,
   },
+  mounted(){
+    console.log('App component mounted.')
+  }
 };
 </script>
 
 <style>
 html,
 body {
-  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -45,6 +52,12 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100%;
+}
+
+.content {
+  margin-left: 250px;
 }
 
 /*color: #2c3e50;*/
