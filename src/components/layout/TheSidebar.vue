@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <h1>Ridge Journal</h1>
+    <h1>Ridge</h1>
     <button class="add-trade-btn">+ Add Trade</button>
     <nav>
       <ul class="sidebar-items">

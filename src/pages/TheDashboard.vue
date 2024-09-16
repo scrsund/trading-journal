@@ -1,7 +1,10 @@
 <template>
   <main class="dashboard">
-  <section class="section-one">
-    <div class="current-trade-widget">
+    <!--TOP SECTION-->
+    <section class="section-one">
+      <!-- SECTION 1 LEFT SIDE-->
+    <!-- CURRENT TRADE SECTION -->
+    <div class="current-trade-widget widget-card">
       <h2>Current Trades</h2>
       <div class="container">
         <h2>BUY</h2>
@@ -11,15 +14,26 @@
         <p>Comments</p>
       </div>
     </div>
+    <!-- SECTION 1 RIGHT SIDE-->
     <div class="prediction-calendar-container">
-      <div class="prediction-widget">
+      <!-- PREDICTION SECTION -->
+      <div class="prediction-widget widget-card">
         <h2>Weekly Prediction</h2>
         <div class="container">
           <p>Prediction</p>
           <p>Confidence</p>
         </div>
+        <!-- REMINDER & CALENDAR SECTION -->
+      <div class="reminders-calendar-container">
+        <div class="reminders-widget widget-card">
+          <h2>Reminders</h2>
+          <div class="container">
+            <p>Take a break after a trade.</p>
+            <p>Entry price matters.`</p>
+          </div>
+        </div>
       </div>
-      <div class="calendar-widget">
+      <div class="calendar-widget widget-card">
         <h2>Calendar</h2>
         <div class="container">
           <p>News</p>
@@ -27,8 +41,23 @@
         </div>
       </div>
     </div>
+    </div>
   </section>
-  <section class="section-two"></section>
+  <!-- BOTTOM SECTION -->
+  <section class="section-two">
+    <div class="summary-widget widget-card">
+      <h2>Summary</h2>
+      <p>Daily</p>
+      <p>Hourly</p>
+      <p>Monthly</p>
+      <div class="container">
+        <p>Profit Ratio:</p>
+        <p>P&L</p>
+        <p># of Trades</p>
+        <p>etc</p>
+      </div>
+    </div>
+  </section>
 </main>
 </template>
 
