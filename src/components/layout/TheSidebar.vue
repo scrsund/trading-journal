@@ -30,6 +30,8 @@ export default {
   left: 0;
   top: 0;
   padding-top: 20px;
+  overflow-y: auto;
+  z-index: 1000;
 }
 
 h1 {

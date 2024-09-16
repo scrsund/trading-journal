@@ -13,10 +13,12 @@ Pages:
 
 <template>
   <!-- <TheHeader /> -->
-   <div id="app">
-     <TheSidebar />
+  <div id="app">
+    <TheSidebar />
+    <main class="content">
      <router-view></router-view>
-   </div>
+    </main>
+  </div>
   <!-- <TradingEntry></TradingEntry> -->
 </template>
 
@@ -41,7 +43,6 @@ export default {
 <style>
 html,
 body {
-  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -51,6 +52,12 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100%;
+}
+
+.content {
+  margin-left: 250px;
 }
 
 /*color: #2c3e50;*/
