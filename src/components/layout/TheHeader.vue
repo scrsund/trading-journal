@@ -54,6 +54,6 @@ button {
   background-color: transparent;
   color: whitesmoke;
   cursor: pointer;
-  font-size: 1rem
+  font-size: 1rem`
 }
 </style>

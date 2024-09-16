@@ -6,54 +6,84 @@
       <h2>Trade Checklist</h2>
       <div class="checklist">
         <div class="checklist-item">
-          <input type="checkbox" id="trend" name="trend"/>
+          <input type="checkbox" id="trend" name="trend" />
           <label for="trend">15m or 4hr Trend</label>
         </div>
         <div class="checklist-item">
-          <input type="checkbox" id="limitOrder" name="limitOrder">
+          <input type="checkbox" id="limitOrder" name="limitOrder" />
           <label for="limitOrder">Using Limit Order</label>
         </div>
         <div class="checklist-item">
-          <input type="checkbox" id="candleClose" name="candleClose">
+          <input type="checkbox" id="candleClose" name="candleClose" />
           <label for="candleClose">Candle Close</label>
         </div>
         <div class="checklist-item">
-          <input type="checkbox" id="supportResistance" name="supportResistance">
+          <input
+            type="checkbox"
+            id="supportResistance"
+            name="supportResistance"
+          />
           <label for="supportResistance">Support and Resistance</label>
         </div>
         <div class="checklist-item">
-          <input type="checkbox" id="timeNews" name="timeNews">
+          <input type="checkbox" id="timeNews" name="timeNews" />
           <label for="timeNews">Time of Day / News</label>
         </div>
       </div>
     </section>
+
+    <!-- ENTRY SECTION -->
     <section class="entry-section">
       <h2>Entry</h2>
-      <form @submit.prevent="addEntry">
-        <label for="date" name="date">Date</label>
-        <input type="date"/>
-        <label for="time" name="time">Time</label>
-        <input type="time"/>
-        <!-- Create a dropdown for Buy / Sell -->
-        <label for="buy-sell" name="buy-sell">Buy / Sell</label>
-        <select id="buy-sell">
-          <option value="" disabled selected>Select One</option>
-          <option value="buy">Buy</option>
-          <option value="sell">Sell</option>
-        </select>
-        <label for="signal" name="signal">Signal</label>
-        <textarea rows="3"></textarea>
-        <!-- Add multiple TP -->
-        <div v-for="(tp, index) in tpList" :key="index">
-          <label :for="'tp' + (index + 1)">TP {{ index + 1 }}</label>
-          <input id="'tp' + (index + 1)" v-model="tp.value">
+      <form @submit.prevent="addEntry" class="entry-form">
+        <div class="form-row">
+          <label for="date" name="date">Date</label>
+          <input type="date" required />
         </div>
-        <button type="button" @click="addTP" class="add-tp-btn">Add TP</button>
-        <label for="invalidation" name="invalidation">Invalidation Criteria</label>
-        <textarea rows="3"></textarea>
+        <div class="form-row">
+          <label for="time" name="time">Time</label>
+          <input type="time" required />
+        </div>
+        <!-- Create a dropdown for Buy / Sell -->
+        <div class="form-row">
+          <label for="buy-sell" name="buy-sell">Buy / Sell</label>
+          <select id="buy-sell">
+            <option value="" disabled selected>Select One</option>
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="signal" name="signal">Signal</label>
+          <textarea rows="2"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="entryPrice" name="entryPrice">Entry Price</label>
+          <input id="entryPrice" type="number" required />
+        </div>
+        <!-- Add multiple TP -->
+        <div class="form-row" v-for="(tp, index) in tpList" :key="index">
+          <label :for="'tp' + (index + 1)">TP {{ index + 1 }}</label>
+          <input :id="'tp' + (index + 1)" v-model="tp.value" type="number" required />
+        </div>
+        <div class="form-row">
+          <label></label>
+          <button type="button" @click="addTP" class="add-tp-btn">Add TP</button>
+        </div>
+        <div class="form-row">
+        <label for="invalidation" name="invalidation"
+          >Invalidation Criteria</label
+        >
+        <textarea rows="2"></textarea>
+        </div>
+        <div class="form-row">
         <label for="comments" name="comments">Comments</label>
-        <textarea rows="5"></textarea>
-        <button type="submit" class="submit-btn">Submit Entry</button>
+        <textarea rows="2"></textarea>
+        </div>
+        <div class="form-row">
+          <label></label>
+          <button type="submit" class="submit-btn">Submit Entry</button>
+        </div>
       </form>
     </section>
   </main>
@@ -61,37 +91,22 @@
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-      tpList: [{value: ''}]
-    }
+      tpList: [{ value: "" }],
+    };
   },
   methods: {
-    addTP(){
-      this.tpList.push({value: ''})
-    }
-  }
-}
-
+    addTP() {
+      this.tpList.push({ value: "" });
+    },
+  },
+};
 </script>
 
 <style scoped>
-/* main {
-  padding: 1rem;
-  margin: 1rem;
-}
-
-label {
-  display: block;
-}
-
-input,
-textarea {
-  display: block;
-} */
-
 .trading-entry {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -99,11 +114,11 @@ textarea {
 h2 {
   color: #333;
   border-bottom: 2px solid #eee;
-  padding-bottom: .5rem;
+  padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
 
-/* checklist */
+/* SECTION 1 */
 .checklist {
   list-style-type: none;
   padding: 0;
@@ -113,57 +128,57 @@ h2 {
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
-.checklist-item label{
+.checklist-item label {
   display: inline;
   cursor: pointer;
 }
 
-.entry-section form {
+/* SECTION 2 */
+.entry-form {
   display: grid;
   gap: 1rem;
 }
 
+.form-row{
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tp-input {
+  display: flex;
+}
+
 .entry-section label {
   font-weight: bold;
-  margin-bottom: .25rem;
+  text-align: right;
 }
 
 .entry-section input, .entry-section textarea, .entry-section select {
-  width: 100%;
-  padding: .5rem;
+  width: 50%;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
 }
 
-.tp-input {
-  display: grid;
-  gap: .25rem;
+.entry-section textarea {
+  height: 100px;
 }
 
-.add-tp-btn{
-  
-}
-
-.submit-btn{
+.add-tp-btn, .submit-btn {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.add-tp-btn:hover, .submit-btn:hover {
-  background-color: #0056b3;
-}
-
-.submit-btn {
-  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+  width: 50%;
 }
 
 </style>

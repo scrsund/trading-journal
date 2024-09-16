@@ -8,9 +8,8 @@ menu showing reminders, window that comes from the side
         <i class="fa-regular fa-circle-xmark"></i>
       </button>
       <h2>Reminders</h2>
-      <ul>
-        <li v-for="reminder in reminders" :key="reminder">
-          {{ reminder }}
+      <ul class="reminders-list">
+        <li v-for="reminder in reminders" :key="reminder" class="reminder-item"><span class="reminder-text">{{ reminder }}</span>
           <button @click="deleteReminder(reminder)" class="delete-button">
             <i class="fa-regular fa-trash-can"></i>
           </button>
@@ -120,7 +119,38 @@ li {
   margin-left: 0.5rem;
 }
 
-.reminder-input {
+/*reminders list*/
+
+.reminders-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reminder-item{
+  display: flex;
+  align-items: flex-start;
+  padding: .5rem;
+  position: relative;
+}
+
+.reminder-text {
+  flex-grow: 1;
+  padding-right: 2rem;
+}
+
+.delete-button{
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  border: none;
+  background: none;
+  font-size: .9rem;
+  color: #646464;
+  cursor: pointer;
+  padding: 0;
+}
+
+/*.reminder-input {
   width: 80%;
   padding: 8px;
   margin-right: 10px;
@@ -128,7 +158,7 @@ li {
   border: 1px solid #ccc;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
-}
+} */
 
 /*buttons*/
 
@@ -144,15 +174,15 @@ li {
   color: #b3b3b3;
 }
 
-.delete-button {
+/*.delete-button {
   position: fixed;
   right: 0;
   border: none;
-  margin-right: 3rem;
+  margin-right: 1.5rem;
   font-size: 0.7rem;
   color: #646464;
   cursor: pointer;
-}
+}*/
 
 .add-button {
   margin-top: 0.5rem;

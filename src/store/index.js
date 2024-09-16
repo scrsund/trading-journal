@@ -23,14 +23,15 @@ const store = createStore({
       entries: [
         {
           strategy: [],
-          entryTime: "",
-          lotSize: "",
-          risk: "",
-          reward: "",
-          description: "",
+          date: "",
+          time: "",
+          buySell: "",
+          signal: "",
+          TP: "",
+          comments: "",
         },
       ],
-      reminders: ["Take a break after profit or loss"],
+      reminders: ["Take a break after profit or loss", "Trade entry matters -- don't just enter wherever"],
     };
   },
   mutations: {
