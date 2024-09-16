@@ -12,22 +12,25 @@ Pages:
 -->
 
 <template>
-  <TheHeader />
-  <!-- <TheSidebar /> -->
-  <TradingEntry></TradingEntry>
+  <!-- <TheHeader /> -->
+  <router-view>
+    <TheSidebar />
+
+  </router-view>
+  <!-- <TradingEntry></TradingEntry> -->
 </template>
 
 <script>
-import TradingEntry from "./components/TradingEntry.vue";
-import TheHeader from "./components/layout/TheHeader.vue";
-// import TheSidebar from "./components/layout/TheSidebar.vue";
+// import TradingEntry from "./components/TradingEntry.vue";
+// import TheHeader from "./components/layout/TheHeader.vue";
+import TheSidebar from "./components/layout/TheSidebar.vue";
 
 export default {
   name: "App",
   components: {
-    TradingEntry,
-    TheHeader,
-    // TheSidebar,
+    // TradingEntry,
+    // TheHeader,
+    TheSidebar,
   },
 };
 </script>
