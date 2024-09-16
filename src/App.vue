@@ -13,10 +13,10 @@ Pages:
 
 <template>
   <!-- <TheHeader /> -->
-  <router-view>
-    <TheSidebar />
-
-  </router-view>
+   <div id="app">
+     <TheSidebar />
+     <router-view></router-view>
+   </div>
   <!-- <TradingEntry></TradingEntry> -->
 </template>
 
@@ -32,6 +32,9 @@ export default {
     // TheHeader,
     TheSidebar,
   },
+  mounted(){
+    console.log('App component mounted.')
+  }
 };
 </script>
 

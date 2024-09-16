@@ -83,7 +83,6 @@ nav ul li i {
 }
 
 .router-link-active {
-  background-color: #34495e;
   font-weight: bold;
 }
 </style>
