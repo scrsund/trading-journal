@@ -79,7 +79,7 @@ export default {
 /*New styles added*/
 .section-one {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 .current-trade-widget {

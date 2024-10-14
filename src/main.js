@@ -4,6 +4,7 @@ import store from "./store/index.js";
 import router from "./router";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/js/all.js";
+import './assets/main.css';
 
 const app = createApp(App);
 
