@@ -1,5 +1,41 @@
 <template>
-  <main class="dashboard">
+  <!-- Global Container -->
+  <div class="w-full mx-auto p-2">
+    <!-- Top Row Container -->
+    <section id="top" class="grid grid-cols-4 grid-rows-2 mt-10 mx-5 h-1/2">
+      <!-- Title & Widget Wrapper 1 -->
+      <div class="col-span-2 p-2">
+        <h2 class="p-2 text-center text-bold text-lg">Current Trades</h2>
+        <!-- Widget 1 -->
+        <div class="border-2 border-black rounded-xl shadow-lg">
+          <ul>
+            <li class="p-2">Buy</li>
+            <li class="p-2">Signal</li>
+            <li class="p-2">Target 1</li>
+            <li class="p-2">Invalidation</li>
+            <li class="p-2">Comments</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Title & Widget Wrapper 2 -->
+      <div class="col-span-2 p-2 w-full">
+        <h2 class="p-2 text-center text-bold text-lg">Weekly Predictions</h2>
+        <!-- Widget 1 -->
+        <div class="border-2 border-black rounded-xl shadow-lg">
+          <ul>
+            <li class="p-2">Prediction</li>
+            <li class="p-2">Confidence</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Title -->
+    </section>
+    <section id="bottom">
+
+    </section>
+  </div>
+
+  <!-- <main class="dashboard">
     <section class="section-one">
       <div class="current-trade-widget">
         <h3>Current Trades</h3>
@@ -36,9 +72,9 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- BOTTOM SECTION -->
-    <section class="section-two">
+    </section> -->
+  <!-- BOTTOM SECTION -->
+  <!-- <section class="section-two">
       <div class="summary-widget">
         <h3>Summary</h3>
         <button>Daily</button>
@@ -52,7 +88,7 @@
         </div>
       </div>
     </section>
-  </main>
+  </main> -->
 </template>
 
 <script>
@@ -64,7 +100,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<!-- <style scoped>
 * {
   box-sizing: border-box;
 }
@@ -127,4 +163,4 @@ export default {
 .summary-widget button {
   border: none;
 }
-</style>
+</style> -->
